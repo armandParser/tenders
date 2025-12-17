@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  html {
+    overscroll-behavior: none;
+  }
+
+  body {
+    @apply bg-white text-black antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+  }
+}
