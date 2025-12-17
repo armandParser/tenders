@@ -4,15 +4,16 @@ import { TenderList } from './components/TenderList';
 import { TenderDetail } from './components/TenderDetail';
 import { type TenderFilters } from './services/api';
 import { useStore } from './store';
+import { useThemeStore } from './store/themeStore';
 import { useTenders, useSavedTenders } from './hooks/useTenders';
 
 function App() {
   const [selectedTenderId, setSelectedTenderId] = useState<string | undefined>(undefined);
   const [filters, setFilters] = useState<TenderFilters>({});
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [activeTab, setActiveTab] = useState<'search' | 'saved'>('search');
 
   const { hiddenTenders, savedTenders, addReadTender } = useStore();
+  const { theme, toggleTheme } = useThemeStore();
 
   // Search Query
   const {
@@ -39,11 +40,6 @@ function App() {
       console.log('Removed "dark" class from html. ClassList:', document.documentElement.classList.toString());
     }
   }, [theme]);
-
-  const toggleTheme = () => {
-    console.log('toggleTheme function called. Previous theme:', theme);
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
-  };
 
   const handleLoadMore = () => {
     fetchNextPage();

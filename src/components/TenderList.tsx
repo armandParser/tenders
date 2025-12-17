@@ -97,7 +97,7 @@ export function TenderList({ tenders, loading, onSelectTender, selectedTenderId,
                         disabled={loading}
                         className="px-6 py-2 bg-black dark:bg-white text-white dark:text-black text-sm font-medium rounded-full hover:opacity-80 disabled:opacity-50 transition-opacity"
                     >
-                        {loading ? 'Loading...' : 'Load More'}
+                        {loading ? 'Chargement...' : 'Charger +'}
                     </button>
                 </div>
             )}
